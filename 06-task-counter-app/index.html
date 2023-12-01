@@ -16,9 +16,9 @@
                 <h1>Counter</h1>
                 <small>(click the white area)</small>
             </div>
-            <button v-on:click="count = 0; number = 0;">Reset</button>
+            <button v-on:click="count = 0;">Reset</button>
         </header>
-        <main v-on:click="count++" :style="{cssProps:bgcolor}">
+        <main v-on:click="count++" :style="`--counter: ${count}%`">
             <label id="counter">{{ count }}</label>
         </main>
     </div>
