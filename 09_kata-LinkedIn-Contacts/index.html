@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Contacts</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=alexandria:300|chilanka:400|roboto:400|space-mono:400"
+        rel="stylesheet" />
+</head>
+
+<body>
+    <div id="app">
+        <header class="header">
+            <p id="pending">Pending: {{count}} </p>
+            <button>Manage</button>
+        </header>
+        <main>
+            <div class="pplAndButton">
+                <p>People you may know</p>
+                <button>See all</button>
+            </div>
+            <ul id="contacts">
+                <li v-for="user in persons" :key="user">
+                    <div class="personContainer">
+                        <figure v-if="user.backgroundImage" class="bannerfigure"><img class="banner"
+                                :src="user.backgroundImage"></figure>
+                        <button class="btnClose" v-on:click="changeContact(user)">X</button>
+                        <div class="contentContainer">
+                            <img class="personImg" :src="user.picture" alt="Profile Picture">
+                            <p>{{user.name.title}} {{user.name.first}} {{user.name.last}}</p>
+                            <p>{{user.title}}</p>
+                            <p>{{user.mutualConnections}}</p>
+                            <button class="btnConnect" v-on:click="connect(user)">{{user.connectionStatus}}</button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </main>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
