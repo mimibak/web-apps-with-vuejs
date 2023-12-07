@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title> Color Mixer with Vue</title>
+</head>
+
+<body>
+    <header>
+        <div id="app">
+            <input class="red" type="range" step="1" min="0" max="255" v-model="red" @input="updateColorValue">
+            <input class="green" type="range" step="1" min="0" max="255" v-model="green" @input="updateColorValue">
+            <input class="blue" type="range" step="1" min="0" max="255" v-model="blue" @input="updateColorValue">
+            <p id="hexacode"> {{hexCode}}</p>
+        </div>
+    </header>
+    <main>
+
+    </main>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
