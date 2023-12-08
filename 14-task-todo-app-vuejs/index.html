@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=amatic-sc:700" rel="stylesheet" />
+    <title>ToDo App App</title>
+</head>
+
+<body>
+    <article>
+        <header>
+            <h1>ToDo App</h1>
+        </header>
+        <div id="app">
+            <ul id="toDoList">
+                <li><label for="allFilter">All</label>
+                    <input type="radio" id="allFilter" name="filter" @change="filter='all'" checked>
+                </li>
+                <li><label for="openFilter">Open</label>
+                    <input type="radio" id="openFilter" name="filter" @change="filter='open'">
+                </li>
+                <li><label for="doneFilter">Done</label>
+                    <input type="radio" id="doneFilter" name="filter" @change="filter='done'">
+                </li>
+            </ul>
+
+            <button @click="deleteDoneTodos" id="removeBtn">Remove done Todos</button>
+
+            <form id="taskList" @submit.prevent="addToDo">
+                <input type="text" v-model="newTodoInput" id="inputField" name="iText" placeholder="What's up?">
+                <button id="addTodo">Add</button>
+            </form>
+            <section v-if="todos.length > 0">
+                <ul id="toDoList">
+                    <li v-for="todo in filteredTodos" :key="todo.id">
+                        <input type="checkbox" v-model="todo.done" @change="doneTask(todo)">{{ todo.description }}
+                    </li>
+                </ul>
+            </section>
+            <section v-else>
+                <p>Keine Todos vorhanden.</p>
+            </section>
+        </div>
+    </article>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
