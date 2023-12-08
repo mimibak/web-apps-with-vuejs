@@ -30,7 +30,7 @@ Vue.createApp({
         });
     },
     addToDo() {
-      if (!thix.checkDuplis()) {
+      if (!this.checkDuplis()) {
         return;
       }
 

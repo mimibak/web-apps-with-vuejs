@@ -34,16 +34,11 @@
                 <input type="text" v-model="newTodoInput" id="inputField" name="iText" placeholder="What's up?">
                 <button id="addTodo">Add</button>
             </form>
-            <section v-if="todos.length > 0">
-                <ul id="toDoList">
-                    <li v-for="todo in filteredTodos" :key="todo.id">
-                        <input type="checkbox" v-model="todo.done" @change="doneTask(todo)">{{ todo.description }}
-                    </li>
-                </ul>
-            </section>
-            <section v-else>
-                <p>Keine Todos vorhanden.</p>
-            </section>
+            <ul id="toDoList">
+                <li v-for="todo in filteredTodos" :key="todo.id">
+                    <input type="checkbox" v-model="todo.done" @change="doneTask(todo)">{{ todo.description }}
+                </li>
+            </ul>
         </div>
     </article>
     <script src="https://unpkg.com/vue@next"></script>
